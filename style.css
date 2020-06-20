@@ -1,0 +1,14 @@
+html, body {
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+}
+.page-area {
+    display: grid;
+    grid-template-columns: 1fr minmax(0px, 600px) 1fr;
+    height: 100%;
+}
+.content-area {
+    grid-column: 2 / 3;
+    background: lightgrey;
+}
