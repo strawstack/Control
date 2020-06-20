@@ -2,19 +2,20 @@
 <html><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
-    <!-- Font Awesome: <script src="https://kit.fontawesome.com/0033d354dd.js" crossorigin="anonymous"></script> -->
-    <!-- D3: <script src="https://d3js.org/d3.v5.js"></script> -->
-    <!-- Redux: https://unpkg.com/browse/redux@4.0.5/dist/ -->
-    <!-- Vue Dev: <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="page.css">
+    <link rel="stylesheet" type="text/css" href="control-styles.css">
+    <script src="control.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- Vue: <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
 </head>
 <body>
-<div class="page-area">
-    <div class="content-area">
-        <input type="range" id="weight" min="10" value="10" max="2000" step="100">
-    </div>
+<div class="page" id="page">
+
+    <ctrl-slider></ctrl-slider>
+    <!--
+    <input type="range" id="weight" min="10" value="10" max="2000" step="100">
+    -->
+
 </div>
 </body>
 </html>

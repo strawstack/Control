@@ -1,0 +1,17 @@
+.ctrl-slider {
+    height: 10px;
+    width: 300px;
+    position: relative;
+    background: #777;
+    margin: 10px 20px;
+    border-radius: 2px;
+}
+.ctrl-marker {
+    position: absolute;
+    top: -5px;
+    left: -10px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #555;
+}
