@@ -10,14 +10,6 @@ Controls are VueJS components.
 
 The range slider contains three `div` elements. The `ctrl-slider` is the background rect for the control. The `ctrl-marker` is the knob that the user can drag. The `ctrl-highlight` is the highlighted portion of the slider to the left of the marker.
 
-# Modifying the State of a Control
-
-`app.$children[0].value = 100;`
-
-or
-
-`app.$children[<control_index>].<state_name> = <value>;`
-
 # Image
 
 [![](./range-slider.png)](https://regularmemory.blog/Control/)
@@ -25,6 +17,32 @@ or
 # View Live Demo
 
 [View Live Demo](https://regularmemory.blog/Control/)
+
+# How to Use
+
+1. Place the code snippit below in the head of your site.
+
+``` html
+<link rel="stylesheet" type="text/css" href="ctrl-styles.css">
+<script src="control.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+```
+
+2. Place the custom VueJS component tag in the body of your page as per below.
+
+``` html
+<body>
+  <ctrl-slider></ctrl-slider>
+</body>
+```
+
+# Modifying the State of a Control
+
+`app.$children[0].value = 100;`
+
+or
+
+`app.$children[<control_index>].<state_name> = <value>;`
 
 # Todo
 
