@@ -40,22 +40,31 @@ The range slider contains three `div` elements. The `ctrl-slider` is the backgro
 
 # Modifying the State of a Control
 
-`app.$children[0].value = 100;`
+Give each control a unique name with the `id` tag, example:
 
-or
+`<ctrl-slider id="custom_slider"></ctrl-slider>`
 
-`app.$children[<control_index>].<state_name> = <value>;`
+Read and set properties with dot syntax `app.custom_slider.<property-name>`. Example, to read or set a property called value use the following:
+
+`app.custom_slider.value`
+
+`app.custom_slider.value = 50;`
 
 # Todo
+
+- [ ] Rework overall design
+    - [ ] Remove VueJS
+    - [ ] Controls should be empty div
+    - [ ] Div gets populated with HTML elements dynamically via JS
+    - [ ] Use should only require my single JS lib and HTML divs with a specific class. Example, `class="ctrl-slider"` creates control
+    - [ ] Use data attributes to store value, step, min, max
 
 - [x] Bug: value to pixel conversion does not take into account the CSS width of a slider.
 - [x] Click event on slider should move marker to location.
 - [x] Ability to slide the control
 - [x] Bug: lifting mouse on `marker` counts a click and causes marker to return to almost the start of the `slider`
-
-- [ ] Make a way to pass a control name from HTML through to state object. Example: If control is named `sam` then `app.state.sam.<state_name>` or `app.sam.<state_name>` is bound to Vue state
-
-- [ ] Round value to step in computed `position` property
+- [x] Round value to step in computed `position` property
+- [x] Make a way to pass a control name from HTML through to state object. Example: If control is named `sam` then `app.state.sam.<state_name>` or `app.sam.<state_name>` is bound to Vue state
 
 - [ ] Value preview
     - [ ] Current value

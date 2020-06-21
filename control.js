@@ -7,7 +7,7 @@ function main() {
                 value: 0,
                 min: 0,
                 max: 100,
-                step: 1,
+                step: 0.1,
                 _tracking: false,
                 _mouseDownLocal: undefined,
                 _mouseDownGlobal: undefined
@@ -18,11 +18,11 @@ function main() {
                 // Real pixel location of marker
                 let range = this.max - this.min;
                 let progress = this.value - this.min;
-                let percent = progress / range;
+                let stepProgress = Math.round(progress / this.step) * this.step;
+                let percent = stepProgress / range;
                 let width = this._widthSlider;
                 let pixelPos = percent * width;
                 let value = pixelPos;
-                // TODO Round value to step
                 return this._clamp(value, 0, this._widthSlider);
             }
         },
@@ -39,6 +39,9 @@ function main() {
 
             // Type
             this._type = "SLIDER";
+
+            // Custom user id given to component
+            this._id = this.$el.id;
         },
         methods: {
             mousedown: function(e) {
@@ -110,7 +113,14 @@ function main() {
     });
 
     app = new Vue({
-        el: '#page'
+        el: '#page',
+        mounted: function() {
+            for (let child of this.$children) {
+                if (child._id !== undefined) {
+                    this[child._id] = child;
+                }
+            }
+        }
     });
 
     let clearSliderControls = () => {
