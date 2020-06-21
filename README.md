@@ -20,7 +20,7 @@ The range slider contains three `div` elements. The `ctrl-slider` is the backgro
 
 # How to Use
 
-1. Place the code snippit below in the head of your site.
+1. Place the code snippit in the `head` of your page.
 
 ``` html
 <link rel="stylesheet" type="text/css" href="ctrl-styles.css">
@@ -28,7 +28,7 @@ The range slider contains three `div` elements. The `ctrl-slider` is the backgro
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 ```
 
-2. Place the custom VueJS component tag in the body of your page as per below.
+2. Place the custom VueJS component tag in the `body` of your page.
 
 ``` html
 <body>
