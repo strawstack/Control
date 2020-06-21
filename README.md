@@ -10,9 +10,9 @@ Controls are VueJS components.
 
 The range slider contains three `div` elements. The `ctrl-slider` is the background rect for the control. The `ctrl-marker` is the knob that the user can drag. The `ctrl-highlight` is the highlighted portion of the slider to the left of the marker.
 
-# Image
+# Demo GIF
 
-[![](./range-slider.png)](https://regularmemory.blog/Control/)
+[![](./demo.gif)](https://regularmemory.blog/Control/)
 
 # View Live Demo
 
