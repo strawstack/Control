@@ -51,10 +51,21 @@ or
 - [x] Ability to slide the control
 - [x] Bug: lifting mouse on `marker` counts a click and causes marker to return to almost the start of the `slider`
 
-- [ ] Make a way to pass a control name from HTML through to state object. Example: If control is named `sam` then `this.sam.<state>` is bound to Vue state
+- [ ] Make a way to pass a control name from HTML through to state object. Example: If control is named `sam` then `app.state.sam.<state_name>` or `app.sam.<state_name>` is bound to Vue state
 
 - [ ] Round value to step in computed `position` property
 
+- [ ] Value preview
+    - [ ] Current value
+    - [ ] Min, max, and step
+
+- [ ] Make some different styles
+
+- [ ] Make separate style sheet for user
+
+- [ ] Improve instructions
+
+- [ ] Test multiple range-sliders at once
 
 
 
@@ -69,7 +80,4 @@ or
 
 
 
-
-
-
-# end
+.
