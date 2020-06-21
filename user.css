@@ -1,0 +1,16 @@
+/* Range Slider (ctrl-slider) */
+
+/* Slider background */
+.ctrl-slider {
+    background: #999;
+}
+
+/* Slider highlight */
+.ctrl-highlight {
+    background: #666;
+}
+
+/* Slider marker */
+.ctrl-marker {
+    background: #333;
+}

@@ -23,7 +23,7 @@ The range slider contains three `div` elements. The `ctrl-slider` is the backgro
 1. Place the code snippit in the `head` of your page.
 
 ``` html
-<link rel="stylesheet" type="text/css" href="ctrl-styles.css">
+<link rel="stylesheet" type="text/css" href="ctrl.css">
 <script src="control.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 ```
@@ -35,6 +35,8 @@ The range slider contains three `div` elements. The `ctrl-slider` is the backgro
   <ctrl-slider></ctrl-slider>
 </body>
 ```
+
+3. Add and modify `user.css` to re-style controls.
 
 # Modifying the State of a Control
 
