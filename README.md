@@ -20,11 +20,11 @@ or
 
 # Image
 
-[![](./range-slider.png)](#)
+[![](./range-slider.png)](https://regularmemory.blog/Control/)
 
 # View Live Demo
 
-[View Live Demo](#)
+[View Live Demo](https://regularmemory.blog/Control/)
 
 # Todo
 
