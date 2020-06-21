@@ -16,57 +16,62 @@ function main() {
         computed: {
             _position: function() {
                 // Real pixel location of marker
-                if (this.value < this.min) {
-                    return 0 - this._widthMarker/2;
-
-                } else if (this.value > this.max) {
-                    return this.max - this._widthMarker/2;
-
-                }
-
                 let range = this.max - this.min;
                 let progress = this.value - this.min;
                 let percent = progress / range;
                 let width = this._widthSlider;
                 let pixelPos = percent * width;
-                let stepRounded = pixelPos;
-
-                return stepRounded - this._widthMarker/2;
+                let value = pixelPos;
+                // TODO Round value to step
+                return this._clamp(value, 0, this._widthSlider);
             }
         },
         mounted: function() {
+
+            let slider = this.$el;
+
             // Width of slider
-            this._widthSlider = this.$el.getBoundingClientRect().width;
+            this._widthSlider = slider.getBoundingClientRect().width;
 
             // Width of marker
-            let marker = this.$el.children[0];
+            let marker = slider.children[0];
             this._widthMarker = marker.getBoundingClientRect().width;
 
             // Type
             this._type = "SLIDER";
         },
         methods: {
-            click: function(e) {
-                // Block click if on marker
-                if (e.target.className.includes("ctrl-marker")) {
-                    e.stopPropagation();
-                } else {
+            mousedown: function(e) {
+                if (e.target.className.includes("ctrl-slider")) {
                     // Click event on ctrl-slider
                     // Set 'value' given local mouse click location
                     this._setValueGivenLocalOffset(
                         this._getLocalMousePosition(e)
                     );
                 }
-            },
-            mousedown: function(e) {
-                // On ctrl-marker
-                this._mouseDownLocal = e.target.getBoundingClientRect().left;
-                this._mouseDownGlobal = e.clientX;
-                this._tracking = true;
+
+                if (e.target.className.includes("ctrl-marker")) {
+                    let fromParent = this._getLocalMousePositionFromParent;
+                    let p = e.target.parentNode;
+                    this._mouseDownLocal = fromParent(e, this._bBox(p));
+                    this._mouseDownGlobal = e.clientX;
+                    this._tracking = true;
+                    e.stopPropagation();
+                } else {
+                    let mousePos = this._getLocalMousePosition;
+                    this._mouseDownLocal = mousePos(e);
+                    this._mouseDownGlobal = e.clientX;
+                    this._tracking = true;
+                    e.stopPropagation();
+                }
             },
             _getLocalMousePosition: function(e) {
                 // Mouse x-position relative to control
                 return e.clientX - e.target.getBoundingClientRect().left;
+            },
+            _getLocalMousePositionFromParent: function(e, parentBBox) {
+                // Mouse x-position relative to control
+                return e.clientX - parentBBox.left;
             },
             _setValueGivenLocalOffset: function(xPosLocal) {
                 //let range = this.max - this.min;
@@ -75,15 +80,30 @@ function main() {
                 let percent = pixelPos / width;
                 let range = this.max - this.min;
                 let progress = percent * range;
-                this.value = this.min + progress;
+                let value = this.min + progress;
+                this.value = this._clamp(value, this.min, this.max);
+            },
+            _bBox(elem) {
+                return elem.getBoundingClientRect();
+            },
+            _clamp(value, min, max) {
+                if (value < min) {
+                    return min;
+                } else if (value > max) {
+                    return max;
+                } else {
+                    return value;
+                }
             }
         },
         template: `
         <div class="ctrl-slider"
-            v-on:click="click"
+            v-on:mousedown="mousedown"
         >
+            <div class="ctrl-highlight"
+                v-bind:style="{width: _position + 'px'}"
+            ></div>
             <div class="ctrl-marker"
-                v-on:mousedown="mousedown"
                 v-bind:style="{left: _position + 'px'}"
             ></div>
         </div>`

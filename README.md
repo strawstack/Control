@@ -30,6 +30,7 @@ The index of the control depends on the order it was added to Vue
 
 - [ ] Make a way to pass a control name from HTML through to state object. Example: If control is named `sam` then `this.sam.<state>` is bound to Vue state
 
+- [ ] Round value to step in computed `position` property
 
 
 
