@@ -12,11 +12,11 @@ The range slider contains three `div` elements. The `ctrl-slider` is the backgro
 
 # Demo GIF
 
-[![](./demo.gif)](https://regularmemory.blog/Control/)
+[![](./demo.gif)](https://strawstack.github.io/Control/)
 
 # View Live Demo
 
-[View Live Demo](https://regularmemory.blog/Control/)
+[View Live Demo](https://strawstack.github.io/Control/)
 
 # How to Use
 
